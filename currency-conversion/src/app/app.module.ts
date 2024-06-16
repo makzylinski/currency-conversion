@@ -5,11 +5,19 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { ConverterComponent } from './components/converter/converter.component';
+import { CurrencyListComponent } from './components/currency-list/currency-list.component';
 
 @NgModule({
-    declarations: [AppComponent],
-    providers: [],
-    bootstrap: [AppComponent],
-    imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, DatepickerComponent, ConverterComponent]
+  declarations: [AppComponent],
+  providers: [],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    DatepickerComponent,
+    ConverterComponent,
+    CurrencyListComponent
+  ],
 })
 export class AppModule {}
