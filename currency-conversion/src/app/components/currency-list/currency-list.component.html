@@ -1,6 +1,13 @@
+<!-- @if (rates$ | async; as rates) { -->
+
+
 <div class="currency">
-    <ul>
-        <li>test</li>
-        <li>test</li>
-    </ul>
+ 
+    <!-- <ul>
+      @for (rate of rates$ | async; track $index) {
+        <li>{{ rate }}</li>
+      }
+    </ul> -->
+
 </div>
+<!-- } -->
