@@ -1,0 +1,94 @@
+.converter-container {
+  background-color: #424242;
+  background-image: linear-gradient(to bottom right, #424242, #1a1a1a);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  height: 100vh;
+
+  .converter {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    &__rates,
+    &__convert {
+      background-color: #444;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    &__date-picker {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+
+      label {
+        margin-right: 10px;
+        color: #fff;
+      }
+
+      input[type='date'] {
+        padding: 8px;
+        border: 1px solid #555;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+      }
+
+      button {
+        padding: 8px 20px;
+        background-color: #555;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+
+    &__input-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      label {
+        flex: 1;
+        color: #fff;
+      }
+    }
+
+    &__input-group,
+    &__input-group input,
+    &__input-group select {
+      padding: 8px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    &__result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .converter__list {
+      grid-template-columns: 1fr;
+    }
+  }
+}
