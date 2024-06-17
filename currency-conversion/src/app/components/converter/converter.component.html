@@ -15,13 +15,21 @@
     <div class="converter__input-group">
       <label for="from">Z waluty:</label>
       <select id="from" name="from" required>
-        <!-- TODO -->
+        @for (currency of (currencyOptions$ | async); track $index) {
+          <option>
+            {{ currency.code }}
+          </option>
+        }
       </select>
     </div>
     <div class="converter__input-group">
       <label for="to">Na walutę:</label>
       <select id="to" name="to" required>
-        <!-- TODO -->
+        @for (currency of (currencyOptions$ | async); track $index) {
+          <option>
+            {{ currency.code }}
+          </option>
+        }
       </select>
     </div>
     <button mat-stroked-button>Przelicz</button>
