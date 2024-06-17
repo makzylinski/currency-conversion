@@ -22,5 +22,7 @@ export class ConverterComponent implements OnInit {
     });
   }
 
-  onConvertCurrency = () => null;
+  onConvertCurrency = () => {
+    
+  };
 }
