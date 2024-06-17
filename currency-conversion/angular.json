@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "currency-conversion:build:production"
+              "buildTarget": "currency-conversion:build:production"
             },
             "development": {
-              "browserTarget": "currency-conversion:build:development"
+              "buildTarget": "currency-conversion:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "currency-conversion:build"
+            "buildTarget": "currency-conversion:build"
           }
         },
         "test": {
