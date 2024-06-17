@@ -16,6 +16,11 @@ export class CurrencyListComponent implements OnInit {
   rates$: Observable<any>;
 
   ngOnInit(): void {
-    this.rates$ = this.appService.getExchangeRates('A');
+    this.appService.selectedDateSource$.subscribe((date) =>
+      this.fetchData(date),
+    );
   }
+
+  private fetchData = (date: string) =>
+    (this.rates$ = this.appService.getExchangeRates('A', date));
 }
