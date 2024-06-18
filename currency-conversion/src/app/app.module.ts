@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { ConverterComponent } from './components/converter/converter.component';
 import { CurrencyListComponent } from './components/currency-list/currency-list.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { CurrencyListComponent } from './components/currency-list/currency-list.
     HttpClientModule,
     DatepickerComponent,
     ConverterComponent,
-    CurrencyListComponent
+    CurrencyListComponent,
+    PaginationComponent
   ],
 })
 export class AppModule {}
