@@ -23,30 +23,13 @@ export class PaginationComponent implements OnInit {
     this.determineTable();
   };
   onStepForward = (): void => {
-    this.step < 2 ? this.step++ : 0;
+    this.step <= 1 ? this.step++ : 0;
     this.determineTable();
   };
 
   private determineTable = () => {
-    let table;
-    switch (this.step) {
-      case 0: {
-        table = 'A';
-        break;
-      }
-      case 1: {
-        table = 'B';
-        break;
-      }
-      case 2: {
-        table = 'C';
-        break;
-      }
-      default: {
-        table = 'A';
-        break;
-      }
-    }
+    let table: string;
+    !this.step ? (table = 'A') : (table = 'C');
 
     this.appService.selectedTableSource$.next(table);
   };
