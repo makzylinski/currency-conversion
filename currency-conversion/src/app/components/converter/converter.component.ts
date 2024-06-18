@@ -2,7 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
@@ -48,15 +47,14 @@ export class ConverterComponent implements OnInit {
           const fromRate = curr.find((rate) => rate.code === currencyFrom)?.mid;
           const toRate = curr.find((rate) => rate.code === currencyTo)?.mid;
 
-          console.log('amount: ', amount);
-          console.log('fromRate: ', fromRate);
-          console.log('toRate: ', toRate);
-
-          // if (fromRate !== undefined && toRate !== undefined) {
-          //   this.result = (amount * fromRate) / toRate;
-          // } else {
-          //   this.result = null;
-          // }
+          if (fromRate && toRate) {
+            this.result = (
+              (amount * parseFloat(fromRate)) /
+              parseFloat(toRate)
+            ).toFixed(2);
+          } else {
+            this.result = null;
+          }
         }),
       )
       .subscribe();
