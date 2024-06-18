@@ -4,6 +4,7 @@
     <div class="converter__input-group">
       <label for="amount">Kwota:</label>
       <input
+        formControlName="amount"
         type="number"
         id="amount"
         name="amount"
@@ -14,7 +15,8 @@
     </div>
     <div class="converter__input-group">
       <label for="from">Z waluty:</label>
-      <select id="from" name="from" required>
+      <select id="from" name="from" required formControlName="currencyFrom">
+        <option value="" selected>Wybierz Walutę</option>
         @for (currency of (currencyOptions$ | async); track $index) {
           <option>
             {{ currency.code }}
@@ -24,7 +26,8 @@
     </div>
     <div class="converter__input-group">
       <label for="to">Na walutę:</label>
-      <select id="to" name="to" required>
+      <select id="to" name="to" required formControlName="currencyTo">
+        <option value="" selected>Wybierz walutę</option>
         @for (currency of (currencyOptions$ | async); track $index) {
           <option>
             {{ currency.code }}

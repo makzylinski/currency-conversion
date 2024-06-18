@@ -17,6 +17,7 @@ export class DatepickerComponent implements OnInit {
 
   ngOnInit(): void {
     const today = new Date();
+    today.setDate(today.getDate() - 1);
     this.selectedDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
     this.onDateChange();
   }

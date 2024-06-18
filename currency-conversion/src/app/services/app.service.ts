@@ -3,7 +3,6 @@ import { Injectable, inject } from '@angular/core';
 import { tap } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
-import { map } from 'rxjs/internal/operators/map';
 import { Rates } from '../models/rates.interface';
 
 @Injectable({
