@@ -1,5 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // import animacji
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from '../app.component';
 import { AppModule } from '../app.module';
 
