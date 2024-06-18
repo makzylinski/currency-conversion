@@ -1,0 +1,14 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+
+  &__left,
+  &__right {
+    cursor: pointer;
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.2;
+  }
+}

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppService } from 'src/app/services/app.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Rates } from 'src/app/models/rates.interface';
+import { combineLatest, map } from 'rxjs';
 
 @Component({
   selector: 'app-currency-list',
@@ -17,13 +18,18 @@ export class CurrencyListComponent implements OnInit {
   rates$: Observable<Rates[]>;
 
   ngOnInit(): void {
-    this.appService.selectedDateSource$.subscribe((date) =>
-      this.fetchData(date),
-    );
+    combineLatest([
+      this.appService.selectedDateSource$,
+      this.appService.selectedTableSource$,
+    ])
+      .pipe(map(([date, table]) => this.fetchData(date, table)))
+      .subscribe();
   }
 
-  private fetchData = (date: string) => {
-    this.appService.getExchangeRates('A', date).subscribe();
-    this.rates$ = this.appService.getCurrencies();
-  }
+  private fetchData = (date: string, table: string) => {
+    if(date && table) {
+      this.appService.getExchangeRates(table, date).subscribe();
+      this.rates$ = this.appService.getCurrencies();
+    }
+  };
 }
