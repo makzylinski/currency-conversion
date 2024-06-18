@@ -32,4 +32,13 @@ export class CurrencyListComponent implements OnInit {
       this.rates$ = this.appService.getCurrencies();
     }
   };
+
+  calculateMid = (rate: Rates) => {
+    let result;
+    if (rate.ask && rate.bid) {
+      result = ((rate.ask + rate.bid) / 2).toFixed(2);
+    } else result = null;
+
+    return result;
+  };
 }
