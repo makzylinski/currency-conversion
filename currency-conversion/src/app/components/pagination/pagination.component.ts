@@ -29,7 +29,7 @@ export class PaginationComponent implements OnInit {
 
   private determineTable = () => {
     let table: string;
-    !this.step ? (table = 'A') : (table = 'C');
+    !this.step ? (table = 'A') : (table = 'C');   //API table B is not found
 
     this.appService.selectedTableSource$.next(table);
   };
