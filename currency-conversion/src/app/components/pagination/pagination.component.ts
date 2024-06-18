@@ -22,7 +22,10 @@ export class PaginationComponent implements OnInit {
     this.step > 0 ? this.step-- : 0;
     this.determineTable();
   };
-  onStepForward = (): number => (this.step < 2 ? this.step++ : 0);
+  onStepForward = (): void => {
+    this.step < 2 ? this.step++ : 0;
+    this.determineTable();
+  }
 
   private determineTable = () => {
     let table;
