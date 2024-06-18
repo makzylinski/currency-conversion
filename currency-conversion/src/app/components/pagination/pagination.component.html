@@ -1,8 +1,24 @@
 <div class="pagination">
-    <div class="pagination__left">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_back_ios"></mat-icon>
-    </div>
-    <div class="pagination__right">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_forward_ios"></mat-icon>
-    </div>
+  <div
+    class="pagination__left"
+    (click)="onStepBack()"
+    [ngClass]="{ disabled: step <= 0 }"
+  >
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontIcon="arrow_back_ios"
+    ></mat-icon>
+  </div>
+  <div
+    class="pagination__right"
+    (click)="onStepForward()"
+    [ngClass]="{ disabled: step >= 2 }"
+  >
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontIcon="arrow_forward_ios"
+    ></mat-icon>
+  </div>
 </div>
