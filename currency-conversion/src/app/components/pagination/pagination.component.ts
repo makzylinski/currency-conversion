@@ -25,7 +25,7 @@ export class PaginationComponent implements OnInit {
   onStepForward = (): void => {
     this.step < 2 ? this.step++ : 0;
     this.determineTable();
-  }
+  };
 
   private determineTable = () => {
     let table;

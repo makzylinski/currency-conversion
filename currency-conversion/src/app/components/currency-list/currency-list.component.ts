@@ -10,7 +10,6 @@ import { combineLatest, map } from 'rxjs';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './currency-list.component.html',
-  styleUrls: ['./currency-list.component.scss'],
 })
 export class CurrencyListComponent implements OnInit {
   private readonly appService = inject(AppService);
@@ -27,7 +26,7 @@ export class CurrencyListComponent implements OnInit {
   }
 
   private fetchData = (date: string, table: string) => {
-    if(date && table) {
+    if (date && table) {
       this.appService.getExchangeRates(table, date).subscribe();
       this.rates$ = this.appService.getCurrencies();
     }

@@ -7,7 +7,7 @@ import { DatepickerComponent } from './components/datepicker/datepicker.componen
 import { ConverterComponent } from './components/converter/converter.component';
 import { CurrencyListComponent } from './components/currency-list/currency-list.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +21,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ConverterComponent,
     CurrencyListComponent,
     PaginationComponent,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
 })
 export class AppModule {}
