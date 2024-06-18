@@ -4,7 +4,7 @@ import { AppService } from 'src/app/services/app.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Rates } from 'src/app/models/rates.interface';
 import { combineLatest, map } from 'rxjs';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-currency-list',

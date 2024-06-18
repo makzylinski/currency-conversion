@@ -35,23 +35,24 @@ export class ConverterComponent implements OnInit {
     this.currencyOptions$ = this.appService.getCurrencies();
   }
 
-  onConvertCurrency = () => {
-    const amount = this.currencyForm.controls['amount'].value;
+  onConvertCurrency = (): void => {
+    const amount = parseFloat(this.currencyForm.controls['amount'].value);
     const currencyFrom = this.currencyForm.controls['currencyFrom'].value;
     const currencyTo = this.currencyForm.controls['currencyTo'].value;
 
     this.currencyOptions$
       .pipe(
         take(1),
-        map((curr) => {
-          const fromRate = curr.find((rate) => rate.code === currencyFrom)?.mid;
-          const toRate = curr.find((rate) => rate.code === currencyTo)?.mid;
+        map((curr: Rates[]) => {
+          const fromRateValue = this.calculateRateValue(
+            curr.find((rate) => rate.code === currencyFrom),
+          );
+          const toRateValue = this.calculateRateValue(
+            curr.find((rate) => rate.code === currencyTo),
+          );
 
-          if (fromRate && toRate) {
-            this.result = (
-              (amount * parseFloat(fromRate)) /
-              parseFloat(toRate)
-            ).toFixed(2);
+          if (fromRateValue !== null && toRateValue !== null) {
+            this.result = ((amount * fromRateValue) / toRateValue).toFixed(2);
           } else {
             this.result = null;
           }
@@ -59,4 +60,18 @@ export class ConverterComponent implements OnInit {
       )
       .subscribe();
   };
+
+  private calculateRateValue(rate: Rates | undefined): number | null {
+    if (!rate) {
+      return null;
+    }
+
+    if (typeof rate.mid === 'number') {
+      return rate.mid;
+    } else if (typeof rate.bid === 'number' && typeof rate.ask === 'number') {
+      return (rate.bid + rate.ask) / 2;
+    } else {
+      return null;
+    }
+  }
 }

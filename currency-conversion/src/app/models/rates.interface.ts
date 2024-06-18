@@ -1,5 +1,7 @@
 export interface Rates {
   currency: string;
   code: string;
-  mid?: string;
+  mid?: number;
+  bid?: number;
+  ask?: number;
 }
