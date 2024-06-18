@@ -12,7 +12,7 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class PaginationComponent implements OnInit {
   private readonly appService = inject(AppService);
-  step = 0;
+  step: number = 0;
 
   ngOnInit(): void {
     this.determineTable();
@@ -23,30 +23,13 @@ export class PaginationComponent implements OnInit {
     this.determineTable();
   };
   onStepForward = (): void => {
-    this.step < 2 ? this.step++ : 0;
+    this.step <= 1 ? this.step++ : 0;
     this.determineTable();
-  }
+  };
 
-  private determineTable = () => {
-    let table;
-    switch (this.step) {
-      case 0: {
-        table = 'A';
-        break;
-      }
-      case 1: {
-        table = 'B';
-        break;
-      }
-      case 2: {
-        table = 'C';
-        break;
-      }
-      default: {
-        table = 'A';
-        break;
-      }
-    }
+  private determineTable = (): void => {
+    let table: string;
+    !this.step ? (table = 'A') : (table = 'C');   //API table B is not found
 
     this.appService.selectedTableSource$.next(table);
   };

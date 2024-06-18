@@ -1,28 +1,27 @@
 .converter {
-    &__input-group {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-  
-        label {
-          flex: 1;
-          color: #fff;
-        }
-      }
-  
-      &__input-group,
-      &__input-group input,
-      &__input-group select {
-        padding: 8px;
-        border: 1px solid #555;
-        border-radius: 5px;
-        background-color: #333;
-        color: #fff;
-      }
+  &__input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 
-      
-    &__result {
-        margin-top: 20px;
-        font-weight: bold;
-      }
+    label {
+      flex: 1;
+      color: #fff;
+    }
+  }
+
+  &__input-group,
+  &__input-group input,
+  &__input-group select {
+    padding: 8px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+  }
+
+  &__result {
+    margin-top: 20px;
+    font-weight: bold;
+  }
 }

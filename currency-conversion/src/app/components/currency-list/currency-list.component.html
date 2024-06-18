@@ -1,7 +1,14 @@
 <div class="currency">
-  <ul>
-    @for (rate of rates$ | async; track $index) {
-      <li>{{ rate.currency }} - {{ rate.code }} : {{ rate.mid }}</li>
-    }
-  </ul>
+  @if (rates$ | async) {
+    <ul>
+      @for (rate of rates$ | async; track $index) {
+        <li>
+          {{ rate.currency }} - {{ rate.code }} : {{ rate.mid }}
+          {{ calculateMid(rate) }}
+        </li>
+      }
+    </ul>
+  } @else {
+    <mat-spinner></mat-spinner>
+  }
 </div>
