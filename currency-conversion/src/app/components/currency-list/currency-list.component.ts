@@ -27,7 +27,9 @@ export class CurrencyListComponent implements OnInit {
   }
 
   private fetchData = (date: string, table: string) => {
-    this.appService.getExchangeRates(table, date).subscribe();
-    this.rates$ = this.appService.getCurrencies();
+    if(date && table) {
+      this.appService.getExchangeRates(table, date).subscribe();
+      this.rates$ = this.appService.getCurrencies();
+    }
   };
 }
