@@ -38,7 +38,9 @@
     .converter {
       flex-direction: column;
 
-      &__rates, &__convert, &__list {
+      &__rates,
+      &__convert,
+      &__list {
         width: 90%;
       }
     }
