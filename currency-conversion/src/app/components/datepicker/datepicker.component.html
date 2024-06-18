@@ -1,5 +1,5 @@
 <div class="datepicker">
   <label for="date">Wybierz datę:</label>
-  <input type="date" id="date" name="date" [(ngModel)]="selectedDate" />
-  <button mat-stroked-button (click)="onDateChange()">OK</button>
+  <input type="date" id="date" name="date" aria-label="Wybierz datę" [(ngModel)]="selectedDate" />
+  <button mat-stroked-button (click)="onDateChange()" aria-label="Zatwierdź datę">OK</button>
 </div>

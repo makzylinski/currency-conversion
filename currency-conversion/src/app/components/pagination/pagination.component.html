@@ -2,22 +2,26 @@
   <div
     class="pagination__left"
     (click)="onStepBack()"
+    aria-label="Poprzednia strona"
+    [attr.aria-disabled]="step <= 0 ? true : null"
     [ngClass]="{ disabled: step <= 0 }"
   >
     <mat-icon
       aria-hidden="false"
-      aria-label="Example home icon"
+      aria-label="Strzałka wstecz"
       fontIcon="arrow_back_ios"
     ></mat-icon>
   </div>
   <div
     class="pagination__right"
     (click)="onStepForward()"
+    aria-label="Kolejna strona"
+    [attr.aria-disabled]="step >= 1 ? true : null"
     [ngClass]="{ disabled: step >= 1 }"
   >
     <mat-icon
       aria-hidden="false"
-      aria-label="Example home icon"
+      aria-label="Strzałka wprzód"
       fontIcon="arrow_forward_ios"
     ></mat-icon>
   </div>
