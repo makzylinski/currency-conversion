@@ -26,14 +26,14 @@ export class CurrencyListComponent implements OnInit {
       .subscribe();
   }
 
-  private fetchData = (date: string, table: string) => {
+  private fetchData = (date: string, table: string): void => {
     if (date && table) {
       this.appService.getExchangeRates(table, date).subscribe();
       this.rates$ = this.appService.getCurrencies();
     }
   };
 
-  calculateMid = (rate: Rates) => {
+  calculateMid = (rate: Rates): string | null => {
     let result;
     if (rate.ask && rate.bid) {
       result = ((rate.ask + rate.bid) / 2).toFixed(2);

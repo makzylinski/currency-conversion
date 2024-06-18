@@ -23,7 +23,7 @@ export class ConverterComponent implements OnInit {
   private readonly appService = inject(AppService);
   currencyForm: FormGroup;
   currencyOptions$: Observable<Rates[]>;
-  result: any;
+  result: string | null;
 
   ngOnInit(): void {
     this.currencyForm = this.formBuilder.group({

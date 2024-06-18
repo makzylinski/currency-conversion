@@ -12,7 +12,7 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class PaginationComponent implements OnInit {
   private readonly appService = inject(AppService);
-  step = 0;
+  step: number = 0;
 
   ngOnInit(): void {
     this.determineTable();
@@ -27,7 +27,7 @@ export class PaginationComponent implements OnInit {
     this.determineTable();
   };
 
-  private determineTable = () => {
+  private determineTable = (): void => {
     let table: string;
     !this.step ? (table = 'A') : (table = 'C');   //API table B is not found
 
