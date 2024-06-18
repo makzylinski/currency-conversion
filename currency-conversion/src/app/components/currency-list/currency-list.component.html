@@ -1,7 +1,7 @@
 <div class="currency">
   <ul>
     @for (rate of rates$ | async; track $index) {
-      <li>{{ rate.currency }} - {{ rate.code }}</li>
+      <li>{{ rate.currency }} - {{ rate.code }} : {{ rate.mid }}</li>
     }
   </ul>
 </div>
