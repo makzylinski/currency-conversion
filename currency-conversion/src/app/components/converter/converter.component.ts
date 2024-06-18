@@ -1,6 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { Observable, map, take } from 'rxjs';
 import { AppService } from 'src/app/services/app.service';
@@ -26,7 +32,7 @@ export class ConverterComponent implements OnInit {
       currencyFrom: [null, Validators.required],
       currencyTo: [null, Validators.required],
     });
-    
+
     this.currencyOptions$ = this.appService.getCurrencies();
   }
 
@@ -35,22 +41,24 @@ export class ConverterComponent implements OnInit {
     const currencyFrom = this.currencyForm.controls['currencyFrom'].value;
     const currencyTo = this.currencyForm.controls['currencyTo'].value;
 
-    this.currencyOptions$.pipe(
-      take(1),
-      map(curr => {
-        const fromRate = curr.find(rate => rate.code === currencyFrom)?.mid;
-        const toRate = curr.find(rate => rate.code === currencyTo)?.mid;
+    this.currencyOptions$
+      .pipe(
+        take(1),
+        map((curr) => {
+          const fromRate = curr.find((rate) => rate.code === currencyFrom)?.mid;
+          const toRate = curr.find((rate) => rate.code === currencyTo)?.mid;
 
-        console.log('amount: ', amount)
-        console.log('fromRate: ', fromRate)
-        console.log('toRate: ', toRate)
+          console.log('amount: ', amount);
+          console.log('fromRate: ', fromRate);
+          console.log('toRate: ', toRate);
 
-        // if (fromRate !== undefined && toRate !== undefined) {
-        //   this.result = (amount * fromRate) / toRate;
-        // } else {
-        //   this.result = null;
-        // }
-      })
-    ).subscribe()
+          // if (fromRate !== undefined && toRate !== undefined) {
+          //   this.result = (amount * fromRate) / toRate;
+          // } else {
+          //   this.result = null;
+          // }
+        }),
+      )
+      .subscribe();
   };
 }
